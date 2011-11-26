@@ -1,3 +1,3 @@
 #!/bin/bash
-# $Id: run.sh 4408 2010-05-13 15:18:52Z vain $
-LANG='en_US.UTF-8' java -classpath .:./lib/pircbot.jar org.jibble.logbot.LogBotMain >> mflogbot.log
+# $Id: run.sh 5154 2011-02-20 23:54:32Z vain $
+nohup LANG='de_DE.UTF-8' java -Djava.awt.headless=true -classpath .:./lib/pircbot.jar org.jibble.logbot.LogBotMain >> logbot.log &
