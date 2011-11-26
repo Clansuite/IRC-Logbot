@@ -1,5 +1,3 @@
-/* mflogbot based on LogBot <http://www.jibble.org/logbot/> */
-/* $Id: LogBotMain.java 2 2005-12-29 23:25:34Z RobertBachmann $ */
 package org.jibble.logbot;
 
 import java.io.*;
@@ -15,7 +13,6 @@ public class LogBotMain {
         String server = p.getProperty("Server", "localhost");
         String channel = p.getProperty("Channel", "#test");
         String nick = p.getProperty("Nick", "LogBot");
-        String password = p.getProperty("Password", "");
         String joinMessage = p.getProperty("JoinMessage", "This channel is logged.");
         
         File outDir = new File(p.getProperty("OutputDir", "./output/"));
@@ -24,11 +21,11 @@ public class LogBotMain {
             System.out.println("Cannot make output directory (" + outDir + ")");
             System.exit(1);
         }
-/*
+
         LogBot.copy(new File("html/header.inc.php"), new File(outDir, "header.inc.php"));
         LogBot.copy(new File("html/footer.inc.php"), new File(outDir, "footer.inc.php"));
         LogBot.copy(new File("html/index.php"), new File(outDir, "index.php"));
-*/        
+        
         BufferedWriter writer = new BufferedWriter(new FileWriter(new File(outDir, "config.inc.php")));
         writer.write("<?php");
         writer.newLine();
@@ -43,7 +40,7 @@ public class LogBotMain {
         writer.close();
         
         LogBot bot = new LogBot(nick, outDir, joinMessage);
-        bot.connect(server,6667,password);
+        bot.connect(server);
         bot.joinChannel(channel);
     }
     
