@@ -46,4 +46,4 @@
     TODO
     ----
 
-     - maybe re-add cookies for the checkboxes via jquery (is this really needed?)
+     - maybe re-add cookies for the checkboxes via jquery (needed?)
