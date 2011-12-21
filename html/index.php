@@ -23,15 +23,13 @@
     *    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     *
     * @license    GNU/GPL v2 or (at your option) any later version, see "/doc/LICENSE".
-    *
     * @author     Jens-Andre Koch <vain@clansuite.com>
     * @copyright  Jens-Andre Koch (2005 - onwards)
-    *
     * @link       http://www.clansuite.com
-    * @link       http://gna.org/projects/clansuite
     *
     * @version    SVN: $Id: extract-weblinks.php 4327 2010-03-28 00:57:40Z vain $
     */
+
 # define Clansuite Logbot Security Constant
 define('IN_CSLOGBOT', true);
 
@@ -60,7 +58,8 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
     $prev = date('Y-m-d', strtotime('-1 day', strtotime($date)));
 
 ?>
-    <ul id="navigation" style="list-style-type: none; padding-left: 0px;">
+    <div id="navigation">
+    <ul style="list-style-type: none; padding: 0px;">
     <li style="text-align: center;"><a href="./">Index</a></li>
     <?php
         if (isset($next))
@@ -73,14 +72,12 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
         }
     ?>
     </ul>
+    </div>
 
-    <h2>IRC Log for <?php echo utf8_encode(strftime('%A, %d. %B %Y', mktime(0, 0, 0, $month, $day, $year))); ?></h2>
+    <h2>IRC Log for <?php echo strftime('%A, %d. %B %Y', mktime(0, 0, 0, $month, $day, $year)); ?></h2>
 
     <ol id="log" style="padding-left: 0px;">
     <?php
-            # security constant for working with clansuite class
-            define('IN_CS', true);
-
             # conditional include of the link grabber
             include dirname(__FILE__) . '/extract-weblinks.php';
 
@@ -94,7 +91,7 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
             if(is_file($filename) and is_readable($filename))
             {
                 $fp = fopen($filename, 'rb');
-                while ( ($current_line = fgets($fp, 1024)) !== false )
+                while(($current_line = fgets($fp, 1024)) !== false)
                 {
                     $lines[] = $current_line;
                     $linkGrabber->grabLinks($current_line);
@@ -105,8 +102,8 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
                 $number_of_lines = count($lines);
                 for($i = 1; $i < $number_of_lines; $i++)
                 {
-                   echo '<li style="list-style: none" class="irc-linenum"><a name="'.$i.'">'.$i.'</a>: '.$lines[$i];
-           echo '</li>';
+                    echo '<li style="list-style: none" class="irc-linenum"><a name="' . $i . '">' . $i . '</a>: ' . $lines[$i];
+                    echo '</li>';
                 }
             }
             else
@@ -116,7 +113,7 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
             }
     ?>
     </ol>
-    <h2>Links of <?php echo utf8_encode(strftime('%A, %d. %B %Y', mktime(0, 0, 0, $month, $day, $year))); ?></h2>
+    <h2>Links of <?php echo strftime('%A, %d. %B %Y', mktime(0, 0, 0, $month, $day, $year)); ?></h2>
     <?php
         echo $linkGrabber->displayListOfLinks();
      ?>
@@ -129,9 +126,9 @@ else
 {
     # Alle Logfiles einlesen
     $dir = opendir(".");
-    while (false !== ($file = readdir($dir)))
+    while(false !== ($file = readdir($dir)))
     {
-        if (strpos($file, ".log") == 10)
+        if(strpos($file, ".log") == 10)
         {
             $filearray[] = $file;
         }
@@ -143,11 +140,11 @@ else
     # Array aufbereiten
     foreach($filearray as $file)
     {
-        $file   = substr($file, 0, 10);
+        $file = substr($file, 0, 10);
 
-        $year   = substr($file, 0, 4);
-        $month  = substr($file, 5, 2);
-        $day    = substr($file, 8, 2);
+        $year = substr($file, 0, 4);
+        $month = substr($file, 5, 2);
+        $day = substr($file, 8, 2);
 
         $years_array["$year"]["$month"]["$day"] = $file;
     }
@@ -159,7 +156,7 @@ else
     # Display Links for all Years
     foreach ($years_array as $year => $months)
     {
-        echo '<a href="#'.$year.'">'.$year.'</a>';
+        echo '<a href="#'.$year.'">'.$year.' </a>';
     }
 
     foreach ($years_array as $year => $months)
@@ -172,8 +169,8 @@ else
         # Display Links for all Months
         foreach($months as $month => $days)
         {
-            $monthname = utf8_encode(strftime("%B", mktime(0, 0, 0, $month, '01', $year)));
-            echo '<a href="#'.$year.'-'.$month.'">'.$monthname.'</a>';
+            $monthname = strftime("%B", mktime(0, 0, 0, $month, '01', $year));
+            echo '<a href="#'.$year.'-'.$month.'">'.$monthname.' </a>';
             if($month == '07') { echo '<br />'; }
         }
 
@@ -181,7 +178,7 @@ else
 
         foreach ($months as $month => $days)
         {
-            $monthname = utf8_encode(strftime('%B', mktime(0, 0, 0, $month, '01', $year)));
+            $monthname = strftime('%B', mktime(0, 0, 0, $month, '01', $year));
             echo '<h3><a name="'.$year.'-'.$month.'">'.$monthname.'</a></h3>';
             echo '<blockquote>';
 
@@ -191,7 +188,7 @@ else
             ?>
                 <li>
                     <a href="<?php echo($_SERVER['PHP_SELF'] . '?date=' . $filename); ?>">
-                        <?php echo utf8_encode(strftime('%A, %d. %B %Y', mktime(0, 0, 0, $month, $day, $year))); ?>
+                        <?php echo strftime('%A, %d. %B %Y', mktime(0, 0, 0, $month, $day, $year)); ?>
                     </a>
                 </li>
             <?php
