@@ -75,7 +75,7 @@ include dirname(__FILE__) . '/config.inc.php';
         <meta name="ICBM" content="53.560348, 13.249941" />
         <base href="http://irclogs.clansuite.com/" />
 
-        <link rel="shortcut icon" href="http://www.clansuite.com/favicon.ico" />
+        <link rel="shortcut icon" href="http://clansuite.com/favicon.ico" />
         <link rel="home" href="/">
         <link rel="prefetch" href="http://forum.clansuite.com/" title="Clansuite Forums" />
         <link rel="prefetch" href="http://trac.clansuite.com/" title="Bugtracker" />
@@ -126,8 +126,8 @@ include dirname(__FILE__) . '/config.inc.php';
             <div id="headmenu">
                 <ul>
                     <li><img title="Clansuite Logo" alt="Clansuite Logo 80x15" width="80" height="15" src="http://cdn.clansuite.com/images/banners/clansuite-80x15.png" /></li>
-                    <li><a href="http://www.clansuite.com/">Home</a></li>
-                    <li><a href="http://www.clansuite.com/#page-downloads">Downloads</a></li>
+                    <li><a href="http://clansuite.com/">Home</a></li>
+                    <li><a href="http://clansuite.com/#page-downloads">Downloads</a></li>
                     <li><a target="_blank" href="http://docs.clansuite.com/">Dokumentation</a></li>
                     <li><a target="_blank" href="http://forum.clansuite.com/">Forum</a></li>
                     <li><a target="_blank" href="http://trac.clansuite.com/wiki">Wiki</a></li>
@@ -137,8 +137,8 @@ include dirname(__FILE__) . '/config.inc.php';
             <div id="langs">
                 <ul>
                     <!-- Change Language -->
-                    <li><a href="http://www.clansuite.com/index.en.php"><img src="http://cdn.clansuite.com/images/languages/en.gif" alt="English" title="Sprache English" /></a>&nbsp;</li>
-                    <li><a href="http://www.clansuite.com/index.de.php"><img src="http://cdn.clansuite.com/images/languages/de.gif" alt="Deutsch" title="Sprache Deutsch" /></a>Deutsch</li>
+                    <li><a href="http://clansuite.com/index.en.php"><img src="http://cdn.clansuite.com/images/languages/en.gif" alt="English" title="Sprache English" /></a>&nbsp;</li>
+                    <li><a href="http://clansuite.com/index.de.php"><img src="http://cdn.clansuite.com/images/languages/de.gif" alt="Deutsch" title="Sprache Deutsch" /></a>Deutsch</li>
                 </ul>
             </div>
             <!-- Fork me on Github Ribbon -->

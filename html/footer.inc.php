@@ -39,7 +39,7 @@ if(defined('IN_CSLOGBOT') === false)
 <p>
     These logs were automatically created by <b><?php echo($nick); ?></b> on
     <a href="irc://<?php echo($server . "/" . substr($channel, 1)); ?>"><?php echo($server); ?></a>
-    using the <a href="http://www.clansuite.com/">Clansuite IRC LogBot</a>. Find the project at <a href="https://github.com/jakoch/IRC-Logbot/">Github</a>.
+    using the <a href="http://clansuite.com/">Clansuite IRC LogBot</a>. Find the project at <a href="https://github.com/jakoch/IRC-Logbot/">Github</a>.
 </p>
 </div><!-- Close maincontent of irclogbot -->
 
@@ -49,7 +49,7 @@ if(defined('IN_CSLOGBOT') === false)
         <ul style="text-align: center;">
             <li><h2>Aktuelle Version</h2></li>
             <li><strong>0.2 alpha</strong><br /><br />
-                <strong><strike><a href="http://www.clansuite.com/index.de.php#page-downloads">Download</a></strike></strong>
+                <strong><strike><a href="http://clansuite.com/index.de.php#page-downloads">Download</a></strike></strong>
             </li>
         </ul>
     </div>
@@ -93,11 +93,11 @@ if(defined('IN_CSLOGBOT') === false)
             <li><h2>Fehler gefunden?</h2></li>
             <li><strong><a target="_blank" href="http://trac.clansuite.com/">Bugtracker</a></strong></li>
             <li><b>Core</b></li>
-            <li><strong><a target="_blank" href="http://www.clansuite.com/trac/newticket?type=defect | bug&amp;component=Core">Report Bug </a></strong></li>
-            <li><strong><a target="_blank" href="http://www.clansuite.com/trac/newticket?type=enhancement | feature requestamp;component=Core">Request Feature</a></strong></li>
+            <li><strong><a target="_blank" href="http://clansuite.com/trac/newticket?type=defect | bug&amp;component=Core">Report Bug </a></strong></li>
+            <li><strong><a target="_blank" href="http://clansuite.com/trac/newticket?type=enhancement | feature requestamp;component=Core">Request Feature</a></strong></li>
             <li><b>Modules</b></li>
-            <li><strong><a target="_blank" href="http://www.clansuite.com/trac/newticket?type=defect | bugamp;component=Module">Report Bug </a></strong></li>
-            <li><strong><a target="_blank" href="http://www.clansuite.com/trac/newticket?type=enhancement | feature requestamp;component=Module">Request Feature</a></strong></li>
+            <li><strong><a target="_blank" href="http://clansuite.com/trac/newticket?type=defect | bugamp;component=Module">Report Bug </a></strong></li>
+            <li><strong><a target="_blank" href="http://clansuite.com/trac/newticket?type=enhancement | feature requestamp;component=Module">Request Feature</a></strong></li>
         </ul>
     </div>
     <!-- Ende Box3 -->
@@ -113,7 +113,7 @@ if(defined('IN_CSLOGBOT') === false)
             <li><strong><a target="_blank" href="irc://irc.quakenet.org:6667/clansuite">IRC #clansuite@Qnet </a></strong></li>
             <li><strong><a target="_blank" href="http://irclogs.clansuite.com/">IRC Logs</a></strong></li>
             <li><strong><a href="ts3server://clansuite.com:9987/">Teamspeak</a></strong></li>
-            <li><strong><a href="http://www.clansuite.com/toolbar/">Toolbar</a></strong></li>
+            <li><strong><a href="http://clansuite.com/toolbar/">Toolbar</a></strong></li>
             <?php /**
               <h2>Ohloh</h2>
               <li><script type="text/javascript" src="http://www.ohloh.net/projects/5526/widgets/project_thin_badge"></script></li>
@@ -154,7 +154,7 @@ if(defined('IN_CSLOGBOT') === false)
         </span>
         <strong>Letzte &Auml;nderung der Seite:</strong> <?php echo LastModified(); ?>
         <span id="footer-right" style="float:right; text-align:right;">
-            <a href="http://www.clansuite.com/banner/" target="_blank">
+            <a href="http://clansuite.com/banner/" target="_blank">
                 <!--
                 <img src="http://cdn.clansuite.com/images/banners/powered_by_clansuite.png" alt="Clansuite 80x32 Logo" title="Clansuite Logo" />
                 -->
