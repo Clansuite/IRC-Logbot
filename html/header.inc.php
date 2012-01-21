@@ -86,7 +86,7 @@ include dirname(__FILE__) . '/config.inc.php';
         <link rel="stylesheet" type="text/css" href="http://cdn.clansuite.com/css/topnavigation.css" media="all" />
         <link rel="stylesheet" type="text/css" href="http://cdn.clansuite.com/css/kubrick.css" media="all" />
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC&amp;subset=latin" />
-
+        <link rel="stylesheet" type="text/css" href="http://irclogs.clansuite.com/irclogs.css" media="all" />
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script type="text/javascript" src="http://cdn.clansuite.com/javascript/clansuite4irclog.js"></script>
         <script type="text/javascript" src="filtering.js"></script>
@@ -116,6 +116,7 @@ include dirname(__FILE__) . '/config.inc.php';
                 box-shadow: -2px -10px 30px rgba(166, 166, 166, 0.1) inset, 1px 1px 1px #FFFFFF inset; }
             #headerstyle { text-align: center; width: 90%; margin-left: 20px; margin-right: 20px; }
         </style>
+
     </head>
 
     <body>
@@ -128,10 +129,10 @@ include dirname(__FILE__) . '/config.inc.php';
                     <li><img title="Clansuite Logo" alt="Clansuite Logo 80x15" width="80" height="15" src="http://cdn.clansuite.com/images/banners/clansuite-80x15.png" /></li>
                     <li><a href="http://clansuite.com/">Home</a></li>
                     <li><a href="http://clansuite.com/#page-downloads">Downloads</a></li>
-                    <li><a target="_blank" href="http://docs.clansuite.com/">Dokumentation</a></li>
-                    <li><a target="_blank" href="http://forum.clansuite.com/">Forum</a></li>
-                    <li><a target="_blank" href="http://trac.clansuite.com/wiki">Wiki</a></li>
-                    <li><a target="_blank" href="http://trac.clansuite.com/">Bugtracker</a></li>
+                    <li><a href="http://docs.clansuite.com/">Dokumentation</a></li>
+                    <li><a href="http://forum.clansuite.com/">Forum</a></li>
+                    <li><a href="http://trac.clansuite.com/wiki">Wiki</a></li>
+                    <li><a href="http://trac.clansuite.com/">Bugtracker</a></li>
                 </ul>
             </div>
             <div id="langs">

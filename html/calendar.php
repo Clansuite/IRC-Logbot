@@ -36,7 +36,7 @@ function generate_calendar($year, $month, $days = array(), $day_name_length = 3,
 
     #note that some locales don't capitalize month and day names
     $title = htmlentities(ucfirst($month_name)) . '&nbsp;' . $year;
-
+   
     /**
      * previous and next links, if applicable
      */
@@ -90,9 +90,8 @@ function generate_calendar($year, $month, $days = array(), $day_name_length = 3,
         foreach($days as $day => $values)
         {
             $days_data[(int)$day] = array (
-                'link'     => isset($values['0']) ? htmlspecialchars($values['0']) : null,
-                'cssclass' => isset($values['1']) ? htmlspecialchars($values['1']) : null,
-                'text'     => isset($values['2']) ? htmlspecialchars($values['2']) : null
+                'link'     => isset($values['0']) ? htmlspecialchars($values['0']) : null,                
+                'text'     => isset($values['2']) ? htmlspecialchars($values['1']) : null
                 #'icon'
             );
         }
@@ -114,7 +113,6 @@ function generate_calendar($year, $month, $days = array(), $day_name_length = 3,
         if(isset($days_data[$day]))
         {            
             $calendar .= '<td';
-            $calendar .= isset($days_data[$day]['cssclass']) ? ' class="' . $days_data[$day]['cssclass'] . '">' : '>';
             $calendar .= isset($days_data[$day]['link']) ? '<a href="' . $days_data[$day]['link'] . '">' . $day . '</a>' : 'no-link';
             $calendar .= '</td>';
         }
