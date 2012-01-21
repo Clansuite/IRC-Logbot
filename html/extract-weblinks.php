@@ -1,6 +1,6 @@
 <?php
    /**
-    * Clansuite - just an eSports CMS
+    * Clansuite IRC Logbot
     * Jens-André Koch © 2005 - onwards
     * http://www.clansuite.com/
     *
@@ -35,7 +35,7 @@
     */
 
 # Security Handler
-if (!defined('IN_CS')){ die('Clansuite not loaded. Direct Access forbidden.'); }
+if (!defined('IN_CSLOGBOT')){ die('Clansuite not loaded. Direct Access forbidden.'); }
 
 /**
  * Clansuite Class for grabbing HTML Links

@@ -31,9 +31,13 @@
     */
 
 # define Clansuite Logbot Security Constant
-define('IN_CSLOGBOT', true);
+if(!defined('IN_CSLOGBOT'))
+{
+    define('IN_CSLOGBOT', true);
+}
 
 setlocale(LC_ALL,'de_DE.UTF-8');
+setlocale(LC_TIME, 'de_DE');
 
 /**
  * ONE DAYS CONTENT => View Single Logfile by appending date to URL, like: "?date=2009-02-09"
@@ -47,7 +51,7 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
 {
     $year = substr($date, 0, 4);
     $month = substr($date, 5, 2);
-    $day = substr($date,8,2);
+    $day = substr($date, 8, 2);
 
     if($date < date('Y-m-d'))
     {
@@ -57,6 +61,19 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
 
 ?>
     <div id="navigation">
+    <?php
+        /**
+         * Include the cached Calendar for this month
+         */
+        $calendar_cache_file = '/cache/'.$month.'-'.$year.'.calendar.php';
+        if(is_file( __DIR__  . $calendar_cache_file) === true)
+        {
+            echo '<table width="100%"><tr><td width="40%">&nbsp;</td><td>';
+            require_once  __DIR__ . $calendar_cache_file;
+            echo '</td><td width="40%">&nbsp;</td></tr></table>';
+        }
+        unset($calendar_cache_file);
+    ?>
     <ul style="list-style-type: none; padding: 0px;">
     <li style="text-align: center;"><a href="./">Index</a></li>
     <?php
@@ -174,24 +191,50 @@ else
 
         echo '<br />';
 
+        include_once __DIR__ . '/calendar.php';
+               
         foreach ($months as $month => $days)
         {
+            /**
+             * Display  list of days
+             */
             $monthname = strftime('%B', mktime(0, 0, 0, $month, '01', $year));
             echo '<h3><a name="'.$year.'-'.$month.'">'.$monthname.'</a></h3>';
             echo '<blockquote>';
 
             arsort($days);
+
+            $days_data = array();
             foreach($days as $day => $filename)
             {
+                $link = $_SERVER['PHP_SELF'] . '?date=' . $filename;
+                $days_data[$day] = array($link, 'linked-day');
+                
             ?>
                 <li>
-                    <a href="<?php echo($_SERVER['PHP_SELF'] . '?date=' . $filename); ?>">
+                    <a href="<?php echo $link; ?>">
                         <?php echo strftime('%A, %d. %B %Y', mktime(0, 0, 0, $month, $day, $year)); ?>
                     </a>
                 </li>
             <?php
             }
             echo '</blockquote>';
+
+            /**
+             * Display calendar
+             */
+
+            ob_start();
+            # the content of the calendar
+            echo generate_calendar($year, $month, $days_data, 3, null, 1);
+            $calendar_content = ob_get_contents();
+            ob_end_clean();
+
+            file_put_contents(__DIR__ . '/cache/'.$month.'-'.$year.'.calendar.php', $calendar_content);
+            
+            echo $calendar_content;
+
+            unset($days_data);
         }
     }
 
