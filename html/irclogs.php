@@ -35,8 +35,6 @@ define('IN_CSLOGBOT', true);
 
 setlocale(LC_ALL,'de_DE.UTF-8');
 
-include dirname(__FILE__) . DIRECTORY_SEPARATOR . 'header.inc.php';
-
 /**
  * ONE DAYS CONTENT => View Single Logfile by appending date to URL, like: "?date=2009-02-09"
  */
@@ -197,8 +195,8 @@ else
         }
     }
 
-    ?></ul><?php
-}
+    ?></ul>
 
-include dirname(__FILE__) . '/footer.inc.php';
+<?php
+}
 ?>

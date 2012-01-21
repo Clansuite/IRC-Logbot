@@ -41,7 +41,7 @@ include dirname(__FILE__) . '/config.inc.php';
 <html>
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 
         <title><?php echo("IRC Log for $channel on $server, collected by $nick"); ?></title>
@@ -50,24 +50,24 @@ include dirname(__FILE__) . '/config.inc.php';
         <meta name="keywords" content="IRC Log for <?php echo($channel); ?>" />
         <!-- Google Verification String -->
         <meta name="google-site-verification" content="c4vq-KbOsBAsVpuURAShPALVdWD1kLtTQQOVlFwLDCQ" />
-        <meta name="MSSmartTagsPreventParsing" content="true">
+        <meta name="MSSmartTagsPreventParsing" content="true" />
         <meta name="MSThemeCompatible" content="no" />
 
         <meta name="imagetoolbar" content="false" />
         <meta name="Author" content="Jens-Andre Koch" />
         <meta name="Copyright" content="2005 - 2011 Jens-Andre Koch." />
         <meta name="Publisher" content="Koch Softwaresystemtechnik" />
-        <meta name="Rating" content="general">
+        <meta name="Rating" content="general" />
         <meta name="page-type" content="Homepage, Website" />
         <meta name="robots" content="index, follow, all, noodp" />
 
         <meta name="language" content="german, de, deutsch" />
         <meta name="DC.Title" content="Clansuite" />
-        <meta name="DC.Creator" content="Jens-Andre Koch">
-        <meta name="DC.Publisher" content="Koch Softwaresystemtechnik">
-        <meta name="DC.Type" content="Service">
-        <meta name="DC.Format" content="text/html">
-        <meta name="DC.Language" content="de">
+        <meta name="DC.Creator" content="Jens-Andre Koch" />
+        <meta name="DC.Publisher" content="Koch Softwaresystemtechnik" />
+        <meta name="DC.Type" content="Service" />
+        <meta name="DC.Format" content="text/html" />
+        <meta name="DC.Language" content="de" />
         <meta name="geo.region" content="DE-MV" />
 
         <meta name="geo.placename" content="Neubrandenburg" />
@@ -76,7 +76,7 @@ include dirname(__FILE__) . '/config.inc.php';
         <base href="http://irclogs.clansuite.com/" />
 
         <link rel="shortcut icon" href="http://clansuite.com/favicon.ico" />
-        <link rel="home" href="/">
+        <link rel="home" href="/" />
         <link rel="prefetch" href="http://forum.clansuite.com/" title="Clansuite Forums" />
         <link rel="prefetch" href="http://trac.clansuite.com/" title="Bugtracker" />
         <link rel="prerender" href="http://forum.clansuite.com/" title="Clansuite Forums" />
