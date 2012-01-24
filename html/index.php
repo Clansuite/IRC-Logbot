@@ -36,7 +36,7 @@ define('IN_CSLOGBOT', true);
 /**
  * fetch the header content into a output buffer
  * because in order to have unique page names (googles likes this)
- * we need to append the requested date to the html <title> tag.
+ * we need to insert the requested date to the html <title> tag.
  * but the date is unknown, at the time of rendering the header.
  */
 ob_start();
@@ -49,6 +49,7 @@ include dirname(__FILE__) . DIRECTORY_SEPARATOR . 'irclogs.php';
  * Append the title tag, clean the buffer, echo our now replaced header content
  */
 $html_output = str_replace('<title>IRC log for ', '<title>IRC log for ' . $day_name, $html_output);
+$html_output = str_replace('<meta name="description" content="IRC Log for ', '<meta name="description" content="IRC Log for ' . $day_name, $html_output);
 ob_clean(); 
 echo $html_output;
 
