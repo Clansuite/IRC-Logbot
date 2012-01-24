@@ -89,7 +89,11 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
     </ul>
     </div>
 
-    <h2>IRC Log for <?php echo strftime('%A, %d. %B %Y', mktime(0, 0, 0, $month, $day, $year)); ?></h2>
+    <?php 
+        # the name of the day is also needed in the header
+        $day_name =echo strftime('%A, %d. %B %Y', mktime(0, 0, 0, $month, $day, $year));
+    ?>
+    <h2>IRC Log for <?php echo $day_name; ?></h2>
 
     <ol id="log" style="padding-left: 0px;">
     <?php
