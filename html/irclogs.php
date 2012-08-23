@@ -65,11 +65,11 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
         /**
          * Include the cached Calendar for this month
          */
-        $calendar_cache_file = '/cache/'.$month.'-'.$year.'.calendar.php';
-        if(is_file( __DIR__  . $calendar_cache_file) === true)
+        $calendar_cache_file = __DIR__ . '/cache/'.$month.'-'.$year.'.calendar.php';
+        if(is_file($calendar_cache_file) === true)
         {
             echo '<table width="100%"><tr><td width="40%">&nbsp;</td><td>';
-            require_once  __DIR__ . $calendar_cache_file;
+            require_once  $calendar_cache_file;
             echo '</td><td width="40%">&nbsp;</td></tr></table>';
         }
         unset($calendar_cache_file);
@@ -91,14 +91,14 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
 
     <?php 
         # the name of the day is also needed in the header
-        $day_name =echo strftime('%A, %d. %B %Y', mktime(0, 0, 0, $month, $day, $year));
+        $day_name = strftime('%A, %d. %B %Y', mktime(0, 0, 0, $month, $day, $year));
     ?>
     <h2>IRC Log for <?php echo $day_name; ?></h2>
 
     <ol id="log" style="padding-left: 0px;">
     <?php
             # conditional include of the link grabber
-            include dirname(__FILE__) . '/extract-weblinks.php';
+            include __DIR__ . '/extract-weblinks.php';
 
             # init LinkGrabber
             $linkGrabber = new Clansuite_LinkGrabber;
@@ -155,6 +155,8 @@ else
     closedir($dir);
 
     arsort($filearray, SORT_STRING);
+    
+    //$number_of_logfiles = count($filearray);
 
     # Array aufbereiten
     foreach($filearray as $file)
@@ -166,10 +168,14 @@ else
         $day = substr($file, 8, 2);
 
         $years_array["$year"]["$month"]["$day"] = $file;
-    }
+    } 
+    
+    // @todo save $years_array and append only new entry
 
     /** OUTPUT **/
+    
     ?>
+    
     <ul>Year(s):
     <?php
     # Display Links for all Years
@@ -234,7 +240,15 @@ else
             $calendar_content = ob_get_contents();
             ob_end_clean();
 
-            file_put_contents(__DIR__ . '/cache/'.$month.'-'.$year.'.calendar.php', $calendar_content);
+            $dir = __DIR__ . '/cache/';           
+            if(is_dir($dir) === false)
+            {
+                mkdir($dir, 0644, true); 
+            }
+            
+            $calendar_file = $month.'-'.$year.'.calendar.php';
+             
+            file_put_contents($dir . $calendar_file, $calendar_content);
             
             echo $calendar_content;
 

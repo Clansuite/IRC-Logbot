@@ -1,4 +1,8 @@
 <?php
+// http://en.wikipedia.org/wiki/ASCII
+define('CR', chr(13));
+define('TAB', chr(9));
+
 /**
  * PHP Calendar 2.4 - 20.01.2012
  *
@@ -9,8 +13,8 @@
  * @license     http://keithdevens.com/software/license
  *
  * @license    GNU/GPL v2 or (at your option) any later version.
- * @author     Jens-André Koch <jakoch@web.de>
- * @copyright  Copyleft: All rights reserved. Jens-André Koch (2012 - onwards)
+ * @author     Jens-Andrï¿½ Koch <jakoch@web.de>
+ * @copyright  Copyleft: All rights reserved. Jens-Andrï¿½ Koch (2012 - onwards)
  */
 function generate_calendar($year, $month, $days = array(), $day_name_length = 3, $month_href = NULL, $first_day = 0, $pn = array())
 {
@@ -31,7 +35,7 @@ function generate_calendar($year, $month, $days = array(), $day_name_length = 3,
 
     list($month, $year, $month_name, $weekday) = explode(',', gmstrftime('%m,%Y,%B,%w', $first_of_month));
 
-    #adjust for $first_day
+    # adjust for $first_day
     $weekday = ($weekday + 7 - $first_day) % 7;
 
     #note that some locales don't capitalize month and day names
@@ -58,27 +62,27 @@ function generate_calendar($year, $month, $days = array(), $day_name_length = 3,
      * Begin calendar. Uses a real <caption>. See http://diveintomark.org/archives/2002/07/03
      */
 
-    $calendar = '<table class="calendar">';
-    $calendar .= '<caption class="calendar-month">';
-    $calendar .= $p;
+    $calendar = '<table class="calendar">'.CR;
+    $calendar .= '<caption class="calendar-month">'.CR;
+    $calendar .= $p.CR;
     $calendar .= $month_href ? '<a href="' . htmlspecialchars($month_href) . '">' . $title . '</a>' : $title;
-    $calendar .= $n;
-    $calendar .= "</caption><tr>";
+    $calendar .= $n.CR;
+    $calendar .= '</caption>'.CR.'<tr>'.CR;
 
     if($day_name_length)
     { #if the day names should be shown ($day_name_length > 0)
         #if day_name_length is >3, the full name of the day will be printed
         foreach($day_names as $d)
         {
-            $calendar .= '<th abbr="' . htmlentities($d) . '">' . htmlentities($day_name_length < 4 ? substr($d, 0, $day_name_length) : $d) . '</th>';
+            $calendar .= '<th abbr="' . htmlentities($d) . '">' . htmlentities($day_name_length < 4 ? substr($d, 0, $day_name_length) : $d) . '</th>'.CR;
         }
-        $calendar .= "</tr><tr>";
+        $calendar .= '</tr>'.CR.'<tr>'.CR;
     }
 
     # initial 'empty' days
     if($weekday > 0)
     {
-        $calendar .= '<td colspan="' . $weekday . '">&nbsp;</td>';
+        $calendar .= '<td colspan="' . $weekday . '">&nbsp;</td>'.CR;
     }
 
     /**
@@ -104,7 +108,7 @@ function generate_calendar($year, $month, $days = array(), $day_name_length = 3,
         if($weekday == 7)
         {
             $weekday = 0;
-            $calendar .= "</tr><tr>";
+            $calendar .= '</tr>'.CR.'<tr>';
         }
 
         /**
@@ -112,23 +116,23 @@ function generate_calendar($year, $month, $days = array(), $day_name_length = 3,
          */        
         if(isset($days_data[$day]))
         {            
-            $calendar .= '<td';
+            $calendar .= '<td>';
             $calendar .= isset($days_data[$day]['link']) ? '<a href="' . $days_data[$day]['link'] . '">' . $day . '</a>' : 'no-link';
-            $calendar .= '</td>';
+            $calendar .= '</td>'.CR;
         }
         else
         {
-            $calendar .= "<td>$day</td>";
+            $calendar .= "<td>$day</td>".CR;
         }
     }
 
     # remaining "empty" days
     if($weekday != 7)
     {
-        $calendar .= '<td colspan="' . (7 - $weekday) . '">&nbsp;</td>';
+        $calendar .= '<td colspan="' . (7 - $weekday) . '">&nbsp;</td>'.CR;
     }
 
-    $calendar .= "</tr></table>";
+    $calendar .= '</tr>'.CR.'</table>';
 
     if(extension_loaded('tidy') === true)
     {
@@ -193,7 +197,7 @@ function cleaning($string_to_clean = null, $tidy_config = null)
     }
 
     $tidy = new tidy();
-    $out = $tidy->repairString($string_to_clean, $tidy_config, 'UTF8');
+    $out = $tidy->repairString($string_to_clean, $tidy_config, 'utf8');
     unset($tidy, $tidy_config);
     return($out);
 }
