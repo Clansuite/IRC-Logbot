@@ -1,8 +1,12 @@
 /* CSS Document */
+.calendar-posi-overview {
+  float:right;
+  margin-right: 20px;
+  margin-top: -360px;
+}
 .calendar {
   background-color: #FFFFFF;
-  margin: 0;
-  padding: 0;
+
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9em;
   border: 1px solid #DCDCDC;

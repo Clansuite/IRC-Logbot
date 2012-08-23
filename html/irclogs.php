@@ -30,10 +30,10 @@
     * @version    SVN: $Id: extract-weblinks.php 4327 2010-03-28 00:57:40Z vain $
     */
 
-# define Clansuite Logbot Security Constant
-if(!defined('IN_CSLOGBOT'))
+# Security Handler
+if(defined('IN_CSLOGBOT') === false)
 {
-    define('IN_CSLOGBOT', true);
+    die('Clansuite Logbot not loaded. Direct Access forbidden.');
 }
 
 setlocale(LC_ALL,'de_DE.UTF-8');
@@ -52,7 +52,7 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
     $year = substr($date, 0, 4);
     $month = substr($date, 5, 2);
     $day = substr($date, 8, 2);
-
+    
     if($date < date('Y-m-d'))
     {
         $next = date('Y-m-d', strtotime('+1 day', strtotime($date)));
@@ -65,11 +65,11 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
         /**
          * Include the cached Calendar for this month
          */
-        $calendar_cache_file = '/cache/'.$month.'-'.$year.'.calendar.php';
-        if(is_file( __DIR__  . $calendar_cache_file) === true)
+        $calendar_cache_file = __DIR__ . '/cache/'.$month.'-'.$year.'.calendar.php';
+        if(is_file($calendar_cache_file) === true)
         {
             echo '<table width="100%"><tr><td width="40%">&nbsp;</td><td>';
-            require_once  __DIR__ . $calendar_cache_file;
+            include  $calendar_cache_file;
             echo '</td><td width="40%">&nbsp;</td></tr></table>';
         }
         unset($calendar_cache_file);
@@ -77,7 +77,8 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
     <ul style="list-style-type: none; padding: 0px;">
     <li style="text-align: center;"><a href="./">Index</a></li>
     <?php
-        if (isset($next))
+        // check if that file exists, date might be today, next is the unwritten future
+        if (isset($next) && is_file($next.'.log'))
         {
              echo '<li style="float:right;">(next) <a rel="next" href="index.php?date='.$next.'">'.$next.' &raquo;</a></li>';
         }
@@ -89,16 +90,15 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
     </ul>
     </div>
 
-    <?php 
-        # the name of the day is also needed in the header
-        $day_name =echo strftime('%A, %d. %B %Y', mktime(0, 0, 0, $month, $day, $year));
-    ?>
-    <h2>IRC Log for <?php echo $day_name; ?></h2>
+    <h2>IRC Log for <?php 
+    // the name of the day is also needed in the header
+    $day_name = strftime('%A, %d. %B %Y', mktime(0, 0, 0, $month, $day, $year));
+    echo $day_name; ?></h2>
 
     <ol id="log" style="padding-left: 0px;">
     <?php
             # conditional include of the link grabber
-            include dirname(__FILE__) . '/extract-weblinks.php';
+            include __DIR__ . '/extract-weblinks.php';
 
             # init LinkGrabber
             $linkGrabber = new Clansuite_LinkGrabber;
@@ -143,7 +143,7 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
  */
 else
 {
-    # Alle Logfiles einlesen
+    // fetch all logfiles
     $dir = opendir(".");
     while(false !== ($file = readdir($dir)))
     {
@@ -154,9 +154,14 @@ else
     }
     closedir($dir);
 
+    // sort logfiles
     arsort($filearray, SORT_STRING);
+    
+    //$number_of_logfiles = count($filearray);
 
-    # Array aufbereiten
+    $years_array = array();
+    
+    # prepare array
     foreach($filearray as $file)
     {
         $file = substr($file, 0, 10);
@@ -164,12 +169,16 @@ else
         $year = substr($file, 0, 4);
         $month = substr($file, 5, 2);
         $day = substr($file, 8, 2);
-
+        
         $years_array["$year"]["$month"]["$day"] = $file;
-    }
+    } 
+    
+    // @todo save $years_array and append only new entry
 
     /** OUTPUT **/
+    
     ?>
+    
     <ul>Year(s):
     <?php
     # Display Links for all Years
@@ -194,9 +203,7 @@ else
         }
 
         echo '<br />';
-
-        include_once __DIR__ . '/calendar.php';
-               
+              
         foreach ($months as $month => $days)
         {
             /**
@@ -222,21 +229,31 @@ else
                 </li>
             <?php
             }
-            echo '</blockquote>';
+            echo '</blockquote><div class="calendar-posi-overview">';
 
             /**
              * Display calendar
              */
 
             ob_start();
+            include_once __DIR__ . '/calendar.php';
             # the content of the calendar
             echo generate_calendar($year, $month, $days_data, 3, null, 1);
             $calendar_content = ob_get_contents();
             ob_end_clean();
 
-            file_put_contents(__DIR__ . '/cache/'.$month.'-'.$year.'.calendar.php', $calendar_content);
+            $dir = __DIR__ . '/cache/';           
+            if(is_dir($dir) === false)
+            {
+                mkdir($dir, 0644, true); 
+            }
+            
+            $calendar_file = $month.'-'.$year.'.calendar.php';
+             
+            file_put_contents($dir . $calendar_file, $calendar_content);
             
             echo $calendar_content;
+            echo '</div>';
 
             unset($days_data);
         }

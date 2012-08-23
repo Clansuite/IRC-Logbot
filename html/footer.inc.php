@@ -146,7 +146,7 @@ if(defined('IN_CSLOGBOT') === false)
         <br/>
         Based on PHP5+, Doctrine, Smarty, Ajax. - Easy, comfortable, fast, flexible.
         <br />
-        &copy; 2005-<?php echo date("Y"); ?> by <a href="http://www.jens-andre-koch.de" target="_blank" style="text-decoration=none">Jens-Andr&#x00E9; Koch</a>.
+        &copy; 2005-<?php echo date("Y"); ?> by <a href="http://www.jens-andre-koch.de" target="_blank" style="text-decoration:none">Jens-Andr&#x00E9; Koch</a>.
         <br />
         <br />
         <span id="footer-left" style="float:left; text-align:left; margin-top: -30px;">

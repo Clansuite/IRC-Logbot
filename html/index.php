@@ -40,18 +40,20 @@ define('IN_CSLOGBOT', true);
  * but the date is unknown, at the time of rendering the header.
  */
 ob_start();
-include dirname(__FILE__) . DIRECTORY_SEPARATOR . 'header.inc.php';
+include __DIR__ . '/header.inc.php';
 $html_output = ob_get_contents();
 
-include dirname(__FILE__) . DIRECTORY_SEPARATOR . 'irclogs.php';
+include __DIR__ . '/irclogs.php';
 
 /** 
  * Append the title tag, clean the buffer, echo our now replaced header content
  */
-$html_output = str_replace('<title>IRC log for ', '<title>IRC log for ' . $day_name, $html_output);
-$html_output = str_replace('<meta name="description" content="IRC Log for ', '<meta name="description" content="IRC Log for ' . $day_name, $html_output);
-ob_clean(); 
-echo $html_output;
+if(isset($day_name)) {
+ $html_output = str_replace('<title>IRC log for ', '<title>IRC log for ' . $day_name, $html_output);
+ $html_output = str_replace('<meta name="description" content="IRC Log for ', '<meta name="description" content="IRC Log for ' . $day_name, $html_output);
+}
 
-include dirname(__FILE__) . '/footer.inc.php';
+include __DIR__ . '/footer.inc.php';
+
+ob_end_flush(); 
 ?>
