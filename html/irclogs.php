@@ -69,7 +69,9 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
         if(is_file($calendar_cache_file) === true)
         {
             echo '<table width="100%"><tr><td width="40%">&nbsp;</td><td>';
+
             include  $calendar_cache_file;
+
             echo '</td><td width="40%">&nbsp;</td></tr></table>';
         }
         unset($calendar_cache_file);
