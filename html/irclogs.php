@@ -36,6 +36,9 @@ if(defined('IN_CSLOGBOT') === false)
     die('Clansuite Logbot not loaded. Direct Access forbidden.');
 }
 
+// Set internal character encoding to UTF-8
+mb_internal_encoding("UTF-8");
+// Set locale to UTF-8
 setlocale(LC_ALL,'de_DE.UTF-8');
 setlocale(LC_TIME, 'de_DE');
 
