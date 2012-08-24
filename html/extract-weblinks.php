@@ -1,7 +1,7 @@
 <?php
    /**
-    * Clansuite - just an eSports CMS
-    * Jens-AndrÈ Koch © 2005 - onwards
+    * Clansuite IRC Logbot
+    * Jens-Andr√© Koch ¬© 2005 - onwards
     * http://www.clansuite.com/
     *
     * This file is part of "Clansuite - just an eSports CMS".
@@ -24,8 +24,8 @@
     *
     * @license    GNU/GPL v2 or (at your option) any later version, see "/doc/LICENSE".
     *
-    * @author     Jens-AndrÈ Koch <vain@clansuite.com>
-    * @copyright  Jens-AndrÈ Koch (2005 - onwards)
+    * @author     Jens-Andr√© Koch <vain@clansuite.com>
+    * @copyright  Jens-Andr√© Koch (2005 - onwards)
     *
     * @link       http://www.clansuite.com
     * @link       http://gna.org/projects/clansuite
@@ -35,7 +35,7 @@
     */
 
 # Security Handler
-if (!defined('IN_CS')){ die('Clansuite not loaded. Direct Access forbidden.'); }
+if (!defined('IN_CSLOGBOT')){ die('Clansuite not loaded. Direct Access forbidden.'); }
 
 /**
  * Clansuite Class for grabbing HTML Links

@@ -1,0 +1,86 @@
+/* CSS Document */
+.calendar-posi-overview {
+  float:right;
+  margin-right: 20px;
+  margin-top: -360px;
+}
+.calendar {
+  background-color: #FFFFFF;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9em;
+  border: 1px solid #DCDCDC;
+  border-radius: 0px 0px 5px 5px;
+  box-shadow: -2px -10px 30px rgba(166, 166, 166, 0.1) inset, 1px 1px 1px #FFFFFF inset;
+}
+.calendar caption {
+  background-color: #BBD8E9;
+  margin: 0;
+  padding: 0.3em 0;
+}
+.calendar th {
+  border-bottom: 1px solid #ccc;
+  font-weight: normal;
+  background: #fff;
+}
+.calendar td {
+  border: 1px solid #eee;
+  padding: .1em .3em ;
+  width: 0.9em;
+  text-align: center;
+}
+.calendar a {
+  color: #0069D6;
+  text-decoration: none;
+}
+
+.calendar td.today {
+  background: #ffc;
+}
+
+.calendar td.selected {
+  border: 1px dotted #ff7800;
+}
+
+.calendar td.highlighted {
+  background: #fc9;
+}
+
+.calendar td:hover, .calendar td.today:hover,
+.calendar td.selected:hover, .calendar td.highlighted:hover {
+  background: #eee;
+  border: 1px solid #808080;
+}
+
+table.calendar td.pad {
+  color: #999;
+  background: #fff;
+}
+
+table.calendar td.pad:hover {
+  background: none;
+  border: 0;
+}
+
+.sunday, .saturday {
+  background: #f0f0f0;
+}
+
+#year {
+  padding: 0;
+  width: 500px;
+  list-style: none;
+}
+
+#year:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+#year li {
+  float: left;
+  padding: 0 .5em .5em 0;
+  height: 150px;
+}
