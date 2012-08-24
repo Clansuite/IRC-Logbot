@@ -45,7 +45,7 @@
   background: #fc9;
 }
 
-.calendar td:hover, .calendar td.today:hover, 
+.calendar td:hover, .calendar td.today:hover,
 .calendar td.selected:hover, .calendar td.highlighted:hover {
   background: #eee;
   border: 1px solid #808080;

@@ -45,7 +45,7 @@ $html_output = ob_get_contents();
 
 include __DIR__ . '/irclogs.php';
 
-/** 
+/**
  * Append the title tag, clean the buffer, echo our now replaced header content
  */
 if(isset($day_name)) {
@@ -55,5 +55,5 @@ if(isset($day_name)) {
 
 include __DIR__ . '/footer.inc.php';
 
-ob_end_flush(); 
+ob_end_flush();
 ?>

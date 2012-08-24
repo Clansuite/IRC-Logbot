@@ -30,7 +30,7 @@ function generate_calendar($year, $month, $days = array(), $day_name_length = 3,
     for($n = 0, $t = (3 + $first_day) * 86400; $n < 7; $n++, $t+=86400)
     {
         # %A means full textual day name
-        $day_names[$n] = ucfirst(gmstrftime('%A', $t)); 
+        $day_names[$n] = ucfirst(gmstrftime('%A', $t));
     }
 
     list($month, $year, $month_name, $weekday) = explode(',', gmstrftime('%m,%Y,%B,%w', $first_of_month));
@@ -40,7 +40,7 @@ function generate_calendar($year, $month, $days = array(), $day_name_length = 3,
 
     #note that some locales don't capitalize month and day names
     $title = htmlentities(ucfirst($month_name)) . '&nbsp;' . $year;
-   
+
     /**
      * previous and next links, if applicable
      */
@@ -89,19 +89,19 @@ function generate_calendar($year, $month, $days = array(), $day_name_length = 3,
      *  convert indexded array into a named assoc array
      */
     if(isset($days) and is_array($days))
-    {     
+    {
         $days_data = array();
         foreach($days as $day => $values)
         {
             $days_data[(int)$day] = array (
-                'link'     => isset($values['0']) ? htmlspecialchars($values['0']) : null,                
+                'link'     => isset($values['0']) ? htmlspecialchars($values['0']) : null,
                 'text'     => isset($values['2']) ? htmlspecialchars($values['1']) : null
                 #'icon'
             );
         }
         unset($days);
     }
-   
+
     for($day = 1, $days_in_month = gmdate('t', $first_of_month); $day <= $days_in_month; $day++, $weekday++)
     {
         # start a new week
@@ -113,9 +113,9 @@ function generate_calendar($year, $month, $days = array(), $day_name_length = 3,
 
         /**
          * Handle data array for all days
-         */        
+         */
         if(isset($days_data[$day]))
-        {            
+        {
             $calendar .= '<td>';
             $calendar .= isset($days_data[$day]['link']) ? '<a href="' . $days_data[$day]['link'] . '">' . $day . '</a>' : 'no-link';
             $calendar .= '</td>'.CR;

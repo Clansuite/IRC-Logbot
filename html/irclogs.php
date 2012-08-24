@@ -55,7 +55,7 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
     $year = substr($date, 0, 4);
     $month = substr($date, 5, 2);
     $day = substr($date, 8, 2);
-    
+
     if($date < date('Y-m-d'))
     {
         $next = date('Y-m-d', strtotime('+1 day', strtotime($date)));
@@ -95,7 +95,7 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
     </ul>
     </div>
 
-    <h2>IRC Log for <?php 
+    <h2>IRC Log for <?php
     // the name of the day is also needed in the header
     $day_name = strftime('%A, %d. %B %Y', mktime(0, 0, 0, $month, $day, $year));
     echo $day_name; ?></h2>
@@ -161,11 +161,11 @@ else
 
     // sort logfiles
     arsort($filearray, SORT_STRING);
-    
+
     //$number_of_logfiles = count($filearray);
 
     $years_array = array();
-    
+
     # prepare array
     foreach($filearray as $file)
     {
@@ -174,16 +174,16 @@ else
         $year = substr($file, 0, 4);
         $month = substr($file, 5, 2);
         $day = substr($file, 8, 2);
-        
+
         $years_array["$year"]["$month"]["$day"] = $file;
-    } 
-    
+    }
+
     // @todo save $years_array and append only new entry
 
     /** OUTPUT **/
-    
+
     ?>
-    
+
     <ul>Year(s):
     <?php
     # Display Links for all Years
@@ -208,7 +208,7 @@ else
         }
 
         echo '<br />';
-              
+
         foreach ($months as $month => $days)
         {
             /**
@@ -225,7 +225,7 @@ else
             {
                 $link = $_SERVER['PHP_SELF'] . '?date=' . $filename;
                 $days_data[$day] = array($link, 'linked-day');
-                
+
             ?>
                 <li>
                     <a href="<?php echo $link; ?>">
@@ -247,16 +247,16 @@ else
             $calendar_content = ob_get_contents();
             ob_end_clean();
 
-            $dir = __DIR__ . '/cache/';           
+            $dir = __DIR__ . '/cache/';
             if(is_dir($dir) === false)
             {
-                mkdir($dir, 0644, true); 
+                mkdir($dir, 0644, true);
             }
-            
+
             $calendar_file = $month.'-'.$year.'.calendar.php';
-             
+
             file_put_contents($dir . $calendar_file, $calendar_content);
-            
+
             echo $calendar_content;
             echo '</div>';
 
