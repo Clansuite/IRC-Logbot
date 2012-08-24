@@ -229,7 +229,7 @@ else
             ?>
                 <li>
                     <a href="<?php echo $link; ?>">
-                        <?php echo strftime('%A, %d. %B %Y', mktime(0, 0, 0, $month, $day, $year)); ?>
+                        <?php echo utf8_encode(strftime('%A, %d. %B %Y', mktime(0, 0, 0, $month, $day, $year))); ?>
                     </a>
                 </li>
             <?php
