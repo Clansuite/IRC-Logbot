@@ -202,7 +202,7 @@ else
         # Display Links for all Months
         foreach($months as $month => $days)
         {
-            $monthname = strftime("%B", mktime(0, 0, 0, $month, '01', $year));
+            $monthname = utf8_encode(strftime("%B", mktime(0, 0, 0, $month, '01', $year)));
             echo '<a href="#'.$year.'-'.$month.'">'.$monthname.' </a>';
             if($month == '07') { echo '<br />'; }
         }
@@ -214,7 +214,7 @@ else
             /**
              * Display  list of days
              */
-            $monthname = strftime('%B', mktime(0, 0, 0, $month, '01', $year));
+            $monthname = utf8_encode(strftime('%B', mktime(0, 0, 0, $month, '01', $year)));
             echo '<h3><a name="'.$year.'-'.$month.'">'.$monthname.'</a></h3>';
             echo '<blockquote>';
 
