@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CPATH=/home/clansuite/irclogbot/logbot-0.1.0
+CPATH=/home/clansuite/IRC-Logbot
 
 ps ax | grep -v grep | grep -v -i SCREEN | grep LogBotMain | awk '{print $1}' | xargs kill -9
 sleep 7

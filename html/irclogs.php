@@ -122,12 +122,30 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
                 }
                 fclose($fp);
 
-                # print file linewise, add anchors, like "?date=2009-02-09#27" will jump to line 27
+                 # print file linewise, add anchors, like "?date=2009-02-09#27" will jump to line 27
                 $number_of_lines = count($lines);
-                for($i = 1; $i < $number_of_lines; $i++)
-                {
-                    echo '<li style="list-style: none" class="irc-linenum"><a name="' . $i . '">' . $i . '</a>: ' . $lines[$i];
-                    echo '</li>';
+
+                /**
+                 * The logbot on #clansuite was updated on 2012-08-25.
+                 * The new versions outputs <li> tags by itself.
+                 * This means:
+                 * For all dates preceding 2012-08-25, we need to append them by this script.
+                 * For all dates from 2012-08-25 on, we just ouput the line unmodified.
+                 */
+
+                if($date != '2012-08-25') {
+                    // old version (without li tags)
+                    for($i = 1; $i < $number_of_lines; $i++)
+                    {
+                        echo '<li style="list-style: none" class="irc-linenum"><a name="' . $i . '">' . $i . '</a>: ' . $lines[$i];
+                        echo '</li>';
+                    }
+                } else {
+                    // new version (with li tags)
+                    for($i = 1; $i < $number_of_lines; $i++)
+                    {
+                        echo $lines[$i];
+                    }
                 }
             }
             else

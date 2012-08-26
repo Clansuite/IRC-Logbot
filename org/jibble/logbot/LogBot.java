@@ -82,7 +82,7 @@ public class LogBot extends PircBot {
             File file = new File(outDir, date + ".log");
             BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
 
-        String entry = "<li class=\"";
+        String entry = "<li class=\"irc-linenum ";
 
             switch (type) {
                 case ACTION      : entry += "action"; break;
@@ -100,21 +100,21 @@ public class LogBot extends PircBot {
             }
 
             if (linktime.equals(old_linktime))
-                 entry += "\">[" + time;
+                 entry += "\">[" + time + "] ";
             else
-                 entry += "\" id=\"" + linktime + "\">[<a name=\"#" + linktime + "\">" + time + "</a>";
+                 entry += "\" id=\"" + linktime + "\">[<a name=\"#" + linktime + "\">" + time + "</a>] ";
 
             old_linktime = linktime;
 
         if (type != MESSAGE) {
-                entry += "] <span>" + line + "</span></li>";
+                entry += "<span>" + line + "</span></li>";
             } else {
                 s = Colors.removeFormattingAndColors(s);
                 s = s.replaceAll("&", "&amp;");
                 s = s.replaceAll("<", "&lt;");
                 s = s.replaceAll(">", "&gt;");
 
-                entry += "] &lt;<cite>" + s + "</cite>&gt; " + line + "</li>";
+                entry += "&lt;<cite>" + s + "</cite>&gt; " + line + "</li>";
             }
 
             writer.write(entry);

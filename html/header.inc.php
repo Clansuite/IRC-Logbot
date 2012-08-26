@@ -94,12 +94,18 @@ include __DIR__ . '/config.inc.php';
         <!-- IRC Log - Formatting -->
         <style type="text/css">
             .irc-date  {font-family: Courier New, Courier, mono;}
-            .irc-green {color: #009200;}
-            .irc-black {color: #000000;}
-            .irc-brown {color: #7b0000;}
-            .irc-navy  {color: #00007b;}
-            .irc-brick {color: #9c009c;}
-            .irc-red   {color: #ff0000;}
+            .irc-green, .join, .nick {color: #009200;}
+            .irc-black, .message {color: #000000;}
+            .irc-brown, .topic, .topic-change {color: #7b0000;}
+            .irc-navy, .quit, .part  {color: #00007b;}
+            .irc-brick, .notice, .mode {color: #9c009c;}
+            .irc-red, .kick, .action   {color: #ff0000;}
+            ol li, .log ul ol li {
+                list-style: none outside none;
+            }
+            ol li, .log cite {
+                color: #000000;
+            }
             #irc-log-content { line-height: 1;}
             #content { padding: 7px; font-size: 12px; width: 560px; }
             .rightpage { width: 163px; }
