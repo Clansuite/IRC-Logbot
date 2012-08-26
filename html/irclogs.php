@@ -133,18 +133,17 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
                  * For all dates from 2012-08-25 on, we just ouput the line unmodified.
                  */
 
-                if($date != '2012-08-25') {
-                    // old version (without li tags)
+                if(strtotime($date) < strtotime('2012-08-25')) { // do not use this for newer versions of logbot
+                    // this was added to the logbot itself
                     for($i = 1; $i < $number_of_lines; $i++)
                     {
                         echo '<li style="list-style: none" class="irc-linenum"><a name="' . $i . '">' . $i . '</a>: ' . $lines[$i];
                         echo '</li>';
                     }
                 } else {
-                    // new version (with li tags)
                     for($i = 1; $i < $number_of_lines; $i++)
                     {
-                        echo $lines[$i];
+                    echo $lines[$i];
                     }
                 }
             }
