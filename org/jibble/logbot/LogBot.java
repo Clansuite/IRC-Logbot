@@ -33,9 +33,10 @@ public class LogBot extends PircBot {
         setVerbose(true);
         this.outDir = outDir;
         this.joinMessage = joinMessage;
-    DATE_FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
-    TIME_FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
-    LINKTIME_FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
+        // ADJUST THE TIMEZONE before running the BOT => TimeZone.getTimeZone("Europe/Berlin")
+        DATE_FORMAT.setTimeZone(TimeZone.getDefault());
+        TIME_FORMAT.setTimeZone(TimeZone.getDefault());
+        LINKTIME_FORMAT.setTimeZone(TimeZone.getDefault());
     }
 
     public void append(int type, String line, String s) {
