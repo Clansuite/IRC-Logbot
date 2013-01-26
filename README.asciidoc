@@ -9,6 +9,7 @@ easier to find pervious discussions by providing a decent calendar based navigat
 - All messages have an anchored time-signature for easy linking.
 - The log viewer has a calendar based navigation.
 - The daily log view has jQuery based message filtering (bot, user, topic).
+- The daily log view contains a link summary, created by the Link Grabber.
 
 === Demo
 
