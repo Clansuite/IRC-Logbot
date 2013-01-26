@@ -4,10 +4,11 @@ This is a combination of a modified IRC Channel Logbot (PircBot) and a PHP based
 easier to find pervious discussions by providing a decent calendar based navigation.
 
 Features:
-- LogBot based on PircBot, creates chat log files of your IRC channel
-- all messages have an anchored time-signature for easy linking
-- calendar based navigation
-- jquery based message filtering (bot, user, topic)
+
+- LogBot based on PircBot. It creates the chat log files of your IRC channel.
+- All messages have an anchored time-signature for easy linking.
+- The log viewer has a calendar based navigation.
+- The daily log view has jQuery based message filtering (bot, user, topic).
 
 Demo: http://irclogs.clansuite.com/
 
