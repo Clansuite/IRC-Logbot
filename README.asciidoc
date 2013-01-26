@@ -3,16 +3,18 @@
 This is a combination of a modified IRC Channel Logbot (PircBot) and a PHP based IRC Log Viewer with advanced features. The goal was to make it easier to quote people by linking to the specific item and
 easier to find pervious discussions by providing a decent calendar based navigation.
 
-Features:
+=== Features
 
 - LogBot based on PircBot. It creates the chat log files of your IRC channel.
 - All messages have an anchored time-signature for easy linking.
 - The log viewer has a calendar based navigation.
 - The daily log view has jQuery based message filtering (bot, user, topic).
 
-Demo: http://irclogs.clansuite.com/
+=== Demo
 
-=== Changelog
+http://irclogs.clansuite.com/
+
+== Changelog
 
 === 0.3.0 - Merged 0.2.0 with 0.1.1
 
@@ -52,7 +54,7 @@ Modifications:
 
 http://www.jibble.org/logbot/
 
-=== Related projects
+== Related projects
 
 Mainly for inspiration:
 
