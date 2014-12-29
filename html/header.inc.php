@@ -137,8 +137,7 @@ include __DIR__ . '/config.inc.php';
                     <li><a href="http://clansuite.com/#page-downloads">Downloads</a></li>
                     <li><a href="http://docs.clansuite.com/">Dokumentation</a></li>
                     <li><a href="http://forum.clansuite.com/">Forum</a></li>
-                    <li><a href="http://trac.clansuite.com/wiki">Wiki</a></li>
-                    <li><a href="http://trac.clansuite.com/">Bugtracker</a></li>
+                    <li><a href="https://github.com/Clansuite/Clansuite/issues">Bugtracker</a></li>
                 </ul>
             </div>
             <div id="langs">
@@ -149,7 +148,7 @@ include __DIR__ . '/config.inc.php';
                 </ul>
             </div>
             <!-- Fork me on Github Ribbon -->
-            <a href="https://github.com/jakoch/Clansuite/">
+            <a href="https://github.com/Clansuite/Clansuite/">
                 <img style="position: absolute; top: 0; left: 0; border: 0;" src="http://cdn.clansuite.com/images/fork-me-on-github.png" height="149" width="149" alt="Fork Clansuite on GitHub" />
             </a>
         </div> <!-- Headbar End -->
