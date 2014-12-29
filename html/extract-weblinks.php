@@ -28,13 +28,9 @@
 if (!defined('IN_CSLOGBOT')){ die('Clansuite not loaded. Direct Access forbidden.'); }
 
 /**
- * Class for grabbing HTML Links
- *
- * @category    Clansuite
- * @package     Core
- * @subpackage  LinkGrabber
+ * Linkgrabber - extracts HTML links.
  */
-class Clansuite_LinkGrabber
+class LinkGrabber
 {
     /**
      * Contains the extracted links
