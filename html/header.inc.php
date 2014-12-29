@@ -77,11 +77,6 @@ include __DIR__ . '/config.inc.php';
 
         <link rel="shortcut icon" href="http://clansuite.com/favicon.ico" />
         <link rel="home" href="/" />
-        <link rel="prefetch" href="http://forum.clansuite.com/" title="Clansuite Forums" />
-        <link rel="prefetch" href="http://trac.clansuite.com/" title="Bugtracker" />
-        <link rel="prerender" href="http://forum.clansuite.com/" title="Clansuite Forums" />
-        <link rel="prerender" href="http://trac.clansuite.com/" title="Bugtracker" />
-        <link rel="shortcut icon" href="http://clansuite.com/favicon.ico" />
         <link rel="alternate" type="application/rss+xml" href="http://groups.google.com/group/clansuite/feed/rss_v2_0_topics.xml" title="Clansuite News" />
         <link rel="stylesheet" type="text/css" href="http://cdn.clansuite.com/css/topnavigation.css" media="all" />
         <link rel="stylesheet" type="text/css" href="http://cdn.clansuite.com/css/kubrick.css" media="all" />
