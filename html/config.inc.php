@@ -1,5 +1,6 @@
 <?php
-    $server = "wineasy2.se.quakenet.org";
-    $channel = "#clansuite";
-    $nick = "cslogbot";
+   // Please use a server listed at https://www.quakenet.org/servers
+   $server = "portlane.se.quakenet.org";
+   $channel = "#clansuite";
+   $nick = "cslogbot";
 ?>
