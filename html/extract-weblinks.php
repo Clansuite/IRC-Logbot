@@ -66,15 +66,20 @@ class LinkGrabber
         $links = $dom->getElementsByTagName('a');
 
         // loop over all links
-        foreach ($links as $tag) {
-            $links_array[$tag->getAttribute('href')] = $tag->childNodes->item(0)->nodeValue;
+        foreach ($links as $tag)
+        {
+            $href = $tag->getAttribute('href');
+            if(empty($href) === false) {
+                $links_array[$href] = $tag->childNodes->item(0)->nodeValue;
+            }
+            unset($href);
         }
 
         if($return === true) {
             return $links_array;
-        } else {
-            $this->links = array_merge($links_array, $this->links);
         }
+        
+        $this->links = array_merge($links_array, $this->links);
     }
 
     /**
