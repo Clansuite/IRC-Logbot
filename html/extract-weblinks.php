@@ -48,19 +48,14 @@ class LinkGrabber
      */
     public function grabLinks($link, $load = null, $return = null)
     {
-        // init return array
         $links_array = array();
-
-        // init new dom document object
         $dom = new domDocument;
 
-        // get the HTML
-        // error suppresion active, because html soup can contain invalid cdata entities
-        if($load === 'true') {
+        // get the HTML with error suppresion active, because html soup can contain invalid cdata entities
+        if($load === true) {
             // load html content from a URL resource
             @$dom->loadHTML(file_get_contents($link));
         } else {
-            // load content
             @$dom->loadHTML($link);
         }
         
@@ -75,7 +70,7 @@ class LinkGrabber
             $links_array[$tag->getAttribute('href')] = $tag->childNodes->item(0)->nodeValue;
         }
 
-        if($return == true) {
+        if($return === true) {
             return $links_array;
         } else {
             $this->links = array_merge($links_array, $this->links);
