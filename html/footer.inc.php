@@ -114,13 +114,6 @@ if(defined('IN_CSLOGBOT') === false)
             <li><strong><a target="_blank" href="http://irclogs.clansuite.com/">IRC Logs</a></strong></li>
             <li><strong><a href="ts3server://clansuite.com:9987/">Teamspeak</a></strong></li>
             <li><strong><a href="http://clansuite.com/toolbar/">Toolbar</a></strong></li>
-            <?php /**
-              <h2>Ohloh</h2>
-              <li><script type="text/javascript" src="http://www.ohloh.net/projects/5526/widgets/project_thin_badge"></script></li>
-
-              <h2>SVN Speedometer</h2>
-              <li><img src="odometer.php?p=60" alt="Tacho"></li>
-             */ ?>
         </ul>
     </div>
     <!-- Ende Box2 -->
