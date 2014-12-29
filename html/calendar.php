@@ -3,19 +3,6 @@
 define('CR', chr(13));
 define('TAB', chr(9));
 
-/**
- * PHP Calendar 2.4 - 20.01.2012
- *
- * This is a fork of PHP Calendar (version 2.3).
- * @author      Keith Devens
- * @link        http://keithdevens.com/software/php_calendar
- * @examples    http://keithdevens.com/weblog
- * @license     http://keithdevens.com/software/license
- *
- * @license    GNU/GPL v2 or (at your option) any later version.
- * @author     Jens-Andr� Koch <jakoch@web.de>
- * @copyright  Copyleft: All rights reserved. Jens-Andr� Koch (2012 - onwards)
- */
 function generate_calendar($year, $month, $days = array(), $day_name_length = 3, $month_href = NULL, $first_day = 0, $pn = array())
 {
     /**
