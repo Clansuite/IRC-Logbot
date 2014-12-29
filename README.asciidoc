@@ -57,9 +57,6 @@ http://www.jibble.org/logbot/
 
 == Related projects
 
-Mainly for inspiration:
-
-- https://github.com/KevBurnsJr/irc-log-viewer & http://lab.kevburnsjr.com/irc-log-viewer/
-- https://github.com/firebreath/irc-logviewer & http://logs.firebreath.org/
 - http://logs.simon.geek.nz/index.php
-  Meow. Copycats. Navigation is the same as ours, except the missing calendar navigation.
+  Meow. SilverStripe Copycats. Navigation is the same as ours, except the missing calendar navigation.
+  Oh.. now they added the calendars, too. Superb.
