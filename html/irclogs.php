@@ -102,15 +102,13 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
 
     <ol id="log" style="padding-left: 0px;">
     <?php
-            # conditional include of the link grabber
+            // conditional include of the link grabber
             include __DIR__ . '/extract-weblinks.php';
 
-            # init LinkGrabber
-            $linkGrabber = new Clansuite_LinkGrabber;
+            // init LinkGrabber
+            $linkGrabber = new LinkGrabber;
 
-            /**
-             * Load log file and display
-             */
+            // Load log file and display
             $filename = $date.'.log';
             if(is_file($filename) and is_readable($filename))
             {
@@ -122,7 +120,7 @@ if (isset($date) && preg_match('/^\d\d\d\d-\d\d-\d\d$/', $date))
                 }
                 fclose($fp);
 
-                 # print file linewise, add anchors, like "?date=2009-02-09#27" will jump to line 27
+                // print file linewise, add anchors, like "?date=2009-02-09#27" will jump to line 27
                 $number_of_lines = count($lines);
 
                 /**
