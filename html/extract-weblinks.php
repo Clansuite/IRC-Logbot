@@ -22,23 +22,13 @@
     *    along with this program; if not, write to the Free Software
     *    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
     *
-    * @license    GNU/GPL v2 or (at your option) any later version, see "/doc/LICENSE".
-    *
-    * @author     Jens-André Koch <vain@clansuite.com>
-    * @copyright  Jens-André Koch (2005 - onwards)
-    *
-    * @link       http://www.clansuite.com
-    * @link       http://gna.org/projects/clansuite
-    * @since      File available since Release 0.2
-    *
-    * @version    SVN: $Id: extract-weblinks.php 4327 2010-03-28 00:57:40Z vain $
     */
 
-# Security Handler
+// Security Handler
 if (!defined('IN_CSLOGBOT')){ die('Clansuite not loaded. Direct Access forbidden.'); }
 
 /**
- * Clansuite Class for grabbing HTML Links
+ * Class for grabbing HTML Links
  *
  * @category    Clansuite
  * @package     Core
@@ -54,10 +44,7 @@ class Clansuite_LinkGrabber
     public $links = array();
 
     /**
-     * grabLinks
-     *
-     * Purpose: extract html links <a href="URL">linkname</a> via domdocument selection
-     * This is more efficient than REGEXPing.
+     * grabLinks - Extract links from html using domdocument.
      *
      * @param string   $link  url ressource string (set load true) or html string
      * @param boolean  $load  when true, will grab the html content from url ressource string provided by $link
@@ -65,69 +52,56 @@ class Clansuite_LinkGrabber
      */
     public function grabLinks($link, $load = null, $return = null)
     {
-        # init return array
+        // init return array
         $links_array = array();
 
-        # init new dom document object
+        // init new dom document object
         $dom = new domDocument;
 
-        # get the HTML
-        # error suppresion active, because html soup can contain invalid cdata entities
-        if($load == 'true')
-        {
-            # load html content from a URL resource
-            # note the error suppression
+        // get the HTML
+        // error suppresion active, because html soup can contain invalid cdata entities
+        if($load === 'true') {
+            // load html content from a URL resource
             @$dom->loadHTML(file_get_contents($link));
-        }
-        else # load content
-        {
+        } else {
+            // load content
             @$dom->loadHTML($link);
         }
-        # remove silly white space
+        
+        // remove silly white space
         $dom->preserveWhiteSpace = false;
 
-        # get the links from the HTML
+        // get the links from the HTML
         $links = $dom->getElementsByTagName('a');
 
-        # loop over all links
-        foreach ($links as $tag)
-        {
+        // loop over all links
+        foreach ($links as $tag) {
             $links_array[$tag->getAttribute('href')] = $tag->childNodes->item(0)->nodeValue;
         }
 
-        if($return == true)
-        {
+        if($return == true) {
             return $links_array;
-        }
-        else
-        {
+        } else {
             $this->links = array_merge($links_array, $this->links);
         }
     }
 
     /**
      * displayListOfLinks
-     *
      */
     public function displayListOfLinks()
     {
-        # check for results
-        if(count($this->links) > 0)
-        {
+        // check for results
+        if(count($this->links) > 0) {
             $i = 0;
 
-            # and list each one
-            foreach($this->links as $key=>$value)
-            {
+            // and list each one
+            foreach($this->links as $key => $value) {
                 ++$i;
                 echo '<b>'.$i.'</b>) <a href="'.$key.'">'.$value .'</a><br />';
             }
-        }
-        else
-        {
+        } else {
             echo "No links found.";
         }
     }
-
 }
-?>
