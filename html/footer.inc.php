@@ -39,7 +39,7 @@ if(defined('IN_CSLOGBOT') === false)
 <p>
     These logs were automatically created by <b><?php echo($nick); ?></b> on
     <a href="irc://<?php echo($server . "/" . substr($channel, 1)); ?>"><?php echo($server); ?></a>
-    using the <a href="http://clansuite.com/">Clansuite IRC LogBot</a>. Find the project at <a href="https://github.com/jakoch/IRC-Logbot/">Github</a>.
+    using the <a href="http://clansuite.com/">Clansuite IRC LogBot</a>. Find the project at <a href="https://github.com/Clansuite/IRC-Logbot/">Github</a>.
 </p>
 </div><!-- Close maincontent of irclogbot -->
 
